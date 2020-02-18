@@ -8,7 +8,27 @@ package ch.bzz.bookshelf.model;
  * @author Marcel Suter (Ghwalin)
  */
 public class Publisher {
+    private String publisherUUID;
     private String publisher;
+
+    /**
+     * Gets the publisherUUID
+     *
+     * @return value of publisherUUID
+     */
+    public String getPublisherUUID() {
+        return publisherUUID;
+    }
+
+    /**
+     * Sets the publisherUUID
+     *
+     * @param publisherUUID the value to set
+     */
+
+    public void setPublisherUUID(String publisherUUID) {
+        this.publisherUUID = publisherUUID;
+    }
 
     /**
      * Gets the publisher
