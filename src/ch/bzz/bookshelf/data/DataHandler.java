@@ -135,6 +135,53 @@ public class DataHandler {
     }
 
     /**
+     * writes the bookMap to the csv-file
+     *
+     * @param bookMap map with all the books
+     */
+    public static void writeBooks(Map<String, Book> bookMap) {
+        Writer writer = null;
+        FileOutputStream fileOutputStream = null;
+
+        try {
+            String bookPath = Config.getProperty("bookFile");
+            fileOutputStream = new FileOutputStream(bookPath);
+            writer = new BufferedWriter(new OutputStreamWriter(fileOutputStream, "utf-8"));
+
+            for (Map.Entry<String, Book> bookEntry : bookMap.entrySet()) {
+                Book book = bookEntry.getValue();
+                String contents = String.join(";",
+                        book.getBookUUID().toString(),
+                        book.getTitle(),
+                        book.getAuthor(),
+                        book.getPublisher().getPublisherUUID(),
+                        book.getPrice().toString(),
+                        book.getIsbn()
+                );
+                writer.write(contents + '\n');
+            }
+        } catch (IOException ioEx) {
+            ioEx.printStackTrace();
+            throw new RuntimeException();
+
+        } finally {
+
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * Gets the bookMap
      *
      * @return value of bookMap

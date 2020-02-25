@@ -19,7 +19,7 @@ public class Bookshelf {
      * constructor: read all the books
      */
     public Bookshelf() {
-        bookMap = DataHandler.readBooks();
+        bookMap = DataHandler.getBookMap();
     }
     /**
      * Gets the bookMap
