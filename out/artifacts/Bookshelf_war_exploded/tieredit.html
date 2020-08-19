@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mia Gudelj"/>
+    <meta name="copyright" content="Mia Gudelj"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous">
+
+    <script src="./js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="./js/tieredit.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/js.cookie.js"></script>
+
+    <title>Tier bearbeiten</title>
+</head>
+
+<body class="tieredit">
+
+<header>
+    <h1>Tier bearbeiten</h1>
+
+    <nav class="navbar navbar-expand-sm ">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link disabled" id="userRole" href="#"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="message" href="#"></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button type="submit" class="btn" id="logout">Logout</button>
+        </form>
+    </nav>
+</header>
+
+<content>
+
+    <div class="container">
+        <form class="form" id="tiereditForm" name="tieredit">
+            <div class="form-group row">
+                <label class="col-sm-2">Art</label>
+                <input class="form-control col-sm-4" id="art" name="art" type="text" maxlength="30" required>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Name</label>
+                <input class="form-control col-sm-4" id="name" name="name" type="text" maxlength="30" required>
+                <input id="tierUUID" name="tierUUID" type="text" hidden/>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2">Geburtsdatum</label>
+                <input class="form-control col-sm-2" id="geburtsdatum" name="geburtsdatum" type="text"
+                       placeholder="dd/mm/yyyy" maxlength="10" required>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Alter</label>
+                <input class="form-control col-sm-2" id="alter" name="alter" disabled>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Beine</label>
+                <input class="form-control col-sm-2" id="beine" name="beine" type="number" required>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Fell</label>
+                <input class="form-control col-sm-2" id="fell" name="fell" type="checkbox">
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Zoo</label>
+                <select class="form-control col-sm-6" id="zoo" name="zooUUID" required></select>
+            </div>
+
+            <div class="form-group row">
+                <button class="btn col-sm-1.5" id="save" type="submit" value="Speichern">Speichern</button>
+                <button class="btn col-sm-1.5" id="cancel" type="button" value="Abbrechen">Abbrechen</button>
+                <button class="btn col-sm-1.5" id="reset" type="reset" value="Zurücksetzen">Zurücksetzen</button>
+            </div>
+        </form>
+    </div>
+    </div>
+</content>
+</body>
+</html>

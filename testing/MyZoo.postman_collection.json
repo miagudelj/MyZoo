@@ -1,0 +1,2374 @@
+{
+	"info": {
+		"_postman_id": "f6f39bef-efa0-4876-8e24-62ccd99c12b7",
+		"name": "MyZoo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.1 Einlogen des Benutzers (admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "eva",
+							"description": "admin",
+							"type": "text"
+						},
+						{
+							"key": "passwort",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 Tierliste anzeigen",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3 Ein Tier lesen",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/read?tierUUID=0007b252-3f74-4e25-aa8b-e31473c32757",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"read"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "0007b252-3f74-4e25-aa8b-e31473c32757"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4 Neues Tier einfügen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "giraffe",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "lola",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "25/04/2005",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "ja",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "d3d9652c-13df-4051-8bb7-20580a755ae2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!1.5 Tier ändern",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "db32be38-2139-42b6-8789-04f3cd7fd54c",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "bär",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "balou",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "18/10/1967",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "ja",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.6 Bestehendes Tier löschen",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/delete?tierUUID=3664f34f-583c-4498-9acd-552cdab8c88f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "3664f34f-583c-4498-9acd-552cdab8c88f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.7 Auslogen des Benutzers",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1 Bestehendes Tier löschen eingelogt als user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "userRole=user; Path=/; Domain=localhost; Expires=Sat, 25 Apr 2021 21:02:59 GMT;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/delete?tierUUID=060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 Tier ändern eingelogt als user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "userRole=user; Path=/; Domain=localhost; Expires=Sat, 25 Apr 2021 21:02:59 GMT;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "db32be38-2139-42b6-8789-04f3cd7fd54c",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "bär",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "balou",
+							"type": "text"
+						},
+						{
+							"key": "geburtstag",
+							"value": "18/10/1967",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "ja",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 Neues Tier erstellen eingelogt als user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "userRole=user; Path=/; Domain=localhost; Expires=Sat, 25 Apr 2021 21:02:59 GMT;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Vogel",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ciri",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "d3d9652c-13df-4051-8bb7-20580a755ae2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1 Unbekanntes Tier löschen",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/delete?tierUUID=a0dac85a-1a9b-4112-be77-6cdb33491cd2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "a0dac85a-1a9b-4112-be77-6cdb33491cd2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!3.2 Unbekanntes Tier ändern",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "a0dac85a-1a9b-4112-be77-6cdb33491cd2",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Robbe",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Tom",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "20/05/2011",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "ja",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.3 Unbekannter Zoo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Vogel",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ciri",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "39041807-42ed-4f3d-9222-e229fd9ed3dc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4 Unbekanntes Tier lesen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/read?tierUUID=b16a48f1-c389-428c-8133-eb1e440c28aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"read"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "b16a48f1-c389-428c-8133-eb1e440c28aa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1 Falscher Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "hans",
+							"type": "text"
+						},
+						{
+							"key": "passwort",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!4.2 Falsches Passwort",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login?username=adam&passwort=123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "adam"
+						},
+						{
+							"key": "passwort",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3 Tierliste anzeigen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.4 Tier lesen als Guest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "userRole=guest; Path=/; Domain=localhost; Expires=Sat, 25 Apr 2021 21:02:59 GMT;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/read?tierUUID=0007b252-3f74-4e25-aa8b-e31473c32757",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"read"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "0007b252-3f74-4e25-aa8b-e31473c32757"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1 User Passwort zu kurz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "eva",
+							"type": "text"
+						},
+						{
+							"key": "passwort",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2 Username zu kurz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "z",
+							"type": "text"
+						},
+						{
+							"key": "passwort",
+							"value": "1234567",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.3 Username zu lang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "zulangeusernamensindnichterlaubt",
+							"type": "text"
+						},
+						{
+							"key": "passwort",
+							"value": "1234567",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1 Tier lesen, Tier-tierUUID formal falsch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "a0dac85a-1a9b-4112-be77-6cdbA3491cd2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2 Tier einfügen, Art zu kurz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Holly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3 Tier einfügen, Art zu lang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "EinNeuesTierBrauchtEineRichtigeArt",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.4 Tier einfügen, Name zu kurz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.5 Tier einfügen, Name zu lang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "EinNeuesTierBrauchtEinenRichtigenNamen",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!6.7 Tier einfügen, Monat exesitiert nicht",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/50/2010",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.8 Tier einfügen, Datum formal falsch Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/20100",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.9 Tier einfügen, Anzahl Beine zu klein",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "-1",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.10 Tier einfügen, Beine formal falsch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4.6",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!6.11 Tier einfügen, Fell zu kurz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "12/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "n",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!6.12 Tier einfügen, Fell zu lang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "12/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "neinn",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.13 Tier einfügen, zootierUUID formal falsch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "12/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "b38A47a9-9816-4aae-851b-824afafa1236",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1 Tier ändern, tierUUID formal falsch",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "407518fe-fef0-4A60-9907-106d702c2b9a",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Koala",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Holly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "ja",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2 Tier ändern, Art zu kurz",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Holly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.3 Tier ändern, Art zu lang",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "EinNeuesTierBrauchtEineRichtigeArt",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "02/02/2002",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.4 Tier ändern, Name zu kurz",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.5 Tier ändern, Name zu lang",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "EinNeuesTierBrauchtEinenRichtigenNamen",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!7.6 Tier ändern, Datum liegt in Zukunft",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/2080",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!7.7 Tier ändern, Monat exesitiert nicht",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/50/2010",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.8 Tier ändern, Datum formal falsch",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/20100",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.9 Tier ändern, Anzahl Beine zu klein",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lilly",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/05/1980",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "-1",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.10 Tier ändern, Beine formal falsch",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4.6",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!7.11 Tier ändern, Fell zu kurz",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "n",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "!!7.12 Tier ändern, Fell zu lang",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "05/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "neinn",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "6d7289bc-9dd0-451a-bfbd-23a4a7f3aa6c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.13 Tier ändern, zootierUUID formal falsch",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tierUUID",
+							"value": "060fc68c-ed50-45e0-8c5d-2cd91f031d0e",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Elefant",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Hubert",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "12/12/2000",
+							"type": "text"
+						},
+						{
+							"key": "beine",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "fell",
+							"value": "nein",
+							"type": "text"
+						},
+						{
+							"key": "zooUUID",
+							"value": "b38A47a9-9816-4aae-851b-824afafa1236",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.1 Tier löschen, Tier-tierUUID formal falsch",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Zoo_war/resource/zoo/delete?tierUUID=a0dac85a-1a9b-4112-be77-6cdbA3491cd2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Zoo_war",
+						"resource",
+						"zoo",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "tierUUID",
+							"value": "a0dac85a-1a9b-4112-be77-6cdbA3491cd2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

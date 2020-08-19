@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Mia Gudelj" />
+		<meta name="copyright" content="Mia Gudelj" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous">
+
+		<script src="./js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script src="./js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+		<script src="./js/tieredit.js"></script>
+		<script src="./js/login.js"></script>
+		<script src="./js/util.js"></script>
+		<script src="./js/js.cookie.js"></script>
+		
+		<title>MyZoo</title>
+	</head>
+
+	<body class="zoo">
+		<header>
+			
+		</header>
+			
+		<content>
+			<div class="container">
+				<h1>Mein Zoo</h1>
+
+				<span id='userRole'></span>
+				<span id="message"></span>
+				<button type="button" class="btn" id="logout">Logout</button>
+
+				<div class="container">
+					<form class="form">
+						<div class="form-group row">
+							<label class="col-sm-2" for="address">Applikation</label>
+							<span class="col-sm-8" name="address" id="address"></span>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2" for="service">Service</label>
+
+							<input type="button" value="Alle Tiere" class="btn col-sm-2" id="listButton">
+							<input type="button" value="zeige Tier" class="btn col-sm-2" id="readButton">
+							<input type="button" value="ändere Tier" class="btn col-sm-2" id="updateButton">
+							<input type="button" value="lösche Tiere" class="btn col-sm-2" id="deleteButton">
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2" for="request">Request-Art</label>
+							<select class="form-control col-sm-2" id="sel1">
+								<option>GET</option>
+								<option>PUT</option>
+								<option>POST</option>
+								<option>DELETE</option>
+							</select>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2" for="query">Query-Parameter</label>
+							<textarea class="form-control col-sm-8" rows="3" id="queryparam"></textarea>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2" for="formular">Formular-Parameter</label>
+							<textarea class="form-control col-sm-8" rows="7" id="formparam"></textarea>
+						</div>
+					</form>
+				</div>	
+			</div>
+		</content>
+	</body>
+</html>
